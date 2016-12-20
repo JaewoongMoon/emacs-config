@@ -335,3 +335,16 @@
 ; Highlighting Java .properties Files.
 (add-hook 'conf-javaprop-mode-hook
 		  '(lambda () (conf-quote-normal nil))) ; doesn't work
+
+
+;; (add-hook 'lisp-mode-hook '(lambda ()
+;; 							 (local-set-key (kbd "RET") 'newline-and-indent)))
+
+
+; ---------------------------------------------------------------------------
+; 모든 파일에 대해서 자동 들여쓰기 설정 
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
+; *********************** Perl Programming ********************************/
+(fset 'perl-mode 'cperl-mode)
+(setq cperl-indent-level 4)
