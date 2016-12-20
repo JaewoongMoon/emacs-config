@@ -367,4 +367,31 @@
 (add-to-list 'auto-mode-alist
 			 '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
 
+;***************************************************************************/
+;********************* For Common Lisp programming  ************************/
+;**************************************************************************/
+;(eval-when-compile (require 'cl))
+
+; SLIME setting
+
+;; Set your lisp system and, optionally, some contribs
+;(setq inferior-lisp-program "/opt/sbcl/bin/sbcl")
+;(setq slime-contribs '(slime-fancy))
+
+
+;; Setup load-path, autoloads and your lisp system
+;(add-to-list 'load-path "~/.emacs.d/elpa/slime-20161109.640")
+;(require 'slime-autoloads)
+;; Also setup the slime-fancy contrib
+;(add-to-list 'slime-contribs 'slime-fancy)
+
+
+; 참고: https://gist.github.com/jteneycke/7947353
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "/usr/bin/sbcl")
+
+
+
+
 
