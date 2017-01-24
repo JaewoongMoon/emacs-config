@@ -156,17 +156,9 @@
 ;**************************************************************************/
 ;************************ For Python programming  ************************/
 ;**************************************************************************/
-; 1. set python-mode
-;(setq py-install-directory "~/.emacs.d/python-mode" )
-;(add-to-list 'load-path py-install-directory)
 (require 'python-mode)
 
-;(setq auto-mode-alist
-;      (cons '("\\.py$" . python-mode) auto-mode-alist))
-;(autoload 'python-mode "python-mode" "Python editing mode." t)
-
-
-; 2. indent setting
+; indent setting
 (add-hook 'python-mode-hook
           '(lambda ()
              (setq indent-tabs-mode nil)
@@ -174,48 +166,18 @@
              (setq python-indent 4)
              (setq tab-width 4)))
 
-; 3. ctags-setting (for code jumping)
-;(setq etags-directory "~/.emacs.d/helm-etags-plus")
-;(add-to-list 'load-path etags-directory)
-;(setq tags-table-list '("~/.emacs.d/helm-etags-plus"))
+; Code Jumping : ctags
 (setq tags-table-list '("~/python-cipher-hack"))
 ;(require 'helm-etags+)
 
 
-; 4. auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-use-menu-map t) ;; 補完メニュー表示時にC-n/C-pで補完候補選択
-(setq ac-use-fuzzy t)
+; auto-complete
+;(require 'auto-complete-config)
+;(ac-config-default)
+;(setq ac-use-menu-map t) ;; 補完メニュー表示時にC-n/C-pで補完候補選択
+;(setq ac-use-fuzzy t)
 
-;(require 'ac-python)
-;(add-to-list 'ac-modes 'python-2-mode)
-;(add-to-list 'ac-modes 'text-mode)
-;(add-to-list 'ac-modes 'fundamental-mode)
-;(add-to-list 'ac-modes 'org-mode)
-;(add-to-list 'ac-modes 'yatex-mode)
-;(ac-set-trigger-key "TAB")
 
-; 5. pyflakes setting
-;; http://seorenn.blogspot.jp/2011/05/emacspython-flymake-python-mode_15.html
-;; flymake using pyflakes
-(require 'flymake)
-(require 'pyflakes)
-(when (load "flymake" t)
-  (defun flymake-pyflakes-init () 
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy 
-                       'flymake-create-temp-inplace)) 
-           (local-file (file-relative-name 
-                        temp-file 
-                        (file-name-directory buffer-file-name)))) 
-      (list "pyflakes" (list local-file)))) 
-
-  (add-to-list 'flymake-allowed-file-name-masks 
-               '("\\.py\\'" flymake-pyflakes-init))) 
-
-(add-hook 'python-mode-hook 'flymake-find-file-hook)
-
-;**************************************************************************/
 ;************************ For Emacs-Helm  *********************************/
 ;**************************************************************************/
 
@@ -409,4 +371,19 @@
 ; enable flycheck all the time
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+;; Yasnippet
+(require 'yasnippet)
 
+; add yasnippet snippets
+(setq yas-snippet-dirs
+	  '("~/.emacs.d/snippets/yasnippet-snippets"
+		"~/.emacs.d/snippets/customization"
+		))
+
+(yas-global-mode 1)
+
+
+
+
+
+;;;
