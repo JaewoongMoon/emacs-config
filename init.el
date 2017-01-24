@@ -404,5 +404,7 @@
 (nyan-mode)
 
 
-
+;; Flycheck : 문법체크
+; enable flycheck all the time
+(add-hook after-init-hook #'global-flycheck-mode)
 
