@@ -288,7 +288,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(hl-line ((t (:background "midnight blue")))))
+ '(font-lock-comment-face ((t (:foreground "dark gray" :slant italic))))
+ '(hl-line ((t (:background "cyan4")))))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
@@ -402,7 +403,5 @@
 (setq-default nyan-animate-nyancat t)
 (setq-default nyan-wavy-trail t)
 (nyan-mode)
-
-
 
 
