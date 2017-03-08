@@ -383,10 +383,12 @@
 (require 'yasnippet)
 
 ; add yasnippet snippets
-(setq yas-snippet-dirs
-	  '("~/.emacs.d/snippets/yasnippet-snippets"
-		"~/.emacs.d/snippets/customization"
-		))
+; 이 설정으로 인해 기본 메이저 모드에서 사용할 수 있는 스니펫들은 사용할 수 없어진다.
+; 따라서, 주석처리하거나 아니면 내가 정의한 스니펫과 병용해서 사용할 수 있는 방법을 더 찾아봐야 할 듯...
+;; (setq yas-snippet-dirs
+;; 	  '("~/.emacs.d/snippets/yasnippet-snippets"
+;; 		"~/.emacs.d/snippets/customization"
+;; 		))
 
 (yas-global-mode 1)
 
