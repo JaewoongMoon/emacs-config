@@ -184,6 +184,100 @@
 (imenu-list-minor-mode)
 (global-set-key (kbd "C-'") #'imenu-list-minor-mode) ;; toggle
 
+
+;**************************************************************************/
+;***************************** For C programming  ************************/
+;**************************************************************************/
+; Basic offset
+(setq-default c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode t)
+
+; default style
+(setq c-default-style "k&r")
+
+
+; Indentation
+;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent) ;doesn't work 
+(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
+
+
+; Auto-complete parenthesis
+
+
+;**************************************************************************/
+;************************* For Java programming  **************************/
+;**************************************************************************/
+
+; 만약 이클립스 등으로 작성한 코드라면 기본 들여쓰기 넓이가 8로 되어있을 텐데,
+; 그런 경우를 대비해서  아래와 같이 설정한다.
+(add-hook 'java-mode-hook (lambda ()
+                            (setq c-basic-offset 4 ; tab 키를 눌렀을 때 4 스페이스 만큼의 넓이를 띄운다.
+                                  tab-width 4 ; 소스파일에서 탭 캐릭터가 발견되면 4 스페이스 만큼의 넓이를 띄워서 표시한다.
+                                  indent-tabs-mode t ; 탭을 눌렀을 때 스페이스 캐릭터가 아니라 탭 캐릭터가 저장되도록 한다.
+                                 )))
+
+; Jenkins
+(setq jenkins-api-token "a00407be4aa2ac5d31b25e3f7b3f50dd")
+(setq jenkins-url "http://localhost:8080/jenkins/")
+(setq jenkins-username "jwmoon")
+(setq jenkins-colwidth-name 35)
+
+
+; Highlighting Java .properties Files.
+;; (add-hook 'conf-javaprop-mode-hook
+;; 		  '(lambda () (conf-quote-normal nil))) ; doesn't work
+
+
+;**************************************************************************/
+; *********************** For Perl Programming ****************************/
+;**************************************************************************/
+(fset 'perl-mode 'cperl-mode)
+(setq cperl-indent-level 4)
+
+
+;**************************************************************************/
+;************************* For PHP programming  ***************************/
+;**************************************************************************/
+(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+
+;***************************************************************************/
+;************************* For Ruby programming  ***************************/
+;**************************************************************************/
+(add-to-list 'auto-mode-alist
+			 '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist
+			 '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+
+;***************************************************************************/
+;********************* For Common Lisp programming  ************************/
+;**************************************************************************/
+;(eval-when-compile (require 'cl))
+
+; SLIME setting
+
+;; Set your lisp system and, optionally, some contribs
+;(setq inferior-lisp-program "/opt/sbcl/bin/sbcl")
+;(setq slime-contribs '(slime-fancy))
+
+
+;; Setup load-path, autoloads and your lisp system
+;(add-to-list 'load-path "~/.emacs.d/elpa/slime-20161109.640")
+;(require 'slime-autoloads)
+;; Also setup the slime-fancy contrib
+;(add-to-list 'slime-contribs 'slime-fancy)
+
+
+; 참고: https://gist.github.com/jteneycke/7947353
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "/usr/bin/sbcl")
+
+
+
+; 이 아래부터는 이맥스 공통세팅
 ;************************ For Emacs-Helm  *********************************/
 ;**************************************************************************/
 
@@ -264,106 +358,14 @@
 (setenv "PATH"
         (concat '"/home/jwmoon/.local/bin:" (getenv "PATH")))
 
-
-;**************************************************************************/
-;***************************** For C programming  ************************/
-;**************************************************************************/
-; Basic offset
-(setq-default c-basic-offset 4
-              tab-width 4
-              indent-tabs-mode t)
-
-; default style
-(setq c-default-style "k&r")
-
-
-; Indentation
-;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent) ;doesn't work 
-(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
-
-
-; Auto-complete parenthesis
-
-
-;**************************************************************************/
-;************************* For Java programming  **************************/
-;**************************************************************************/
-
-;(jdee-abbrev-mode)
-(defun my-jde-mode-hook ()
-  (message "========= my-jde-mode-hook function executed")
-  (jdee-abbrev-mode))
-
-(add-hook 'jde-mode-hook 'my-jde-mode-hook) ; doesn't work
-
-
-; Jenkins
-(setq jenkins-api-token "a00407be4aa2ac5d31b25e3f7b3f50dd")
-(setq jenkins-url "http://localhost:8080/jenkins/")
-(setq jenkins-username "jwmoon")
-(setq jenkins-colwidth-name 35)
-
-
-; Highlighting Java .properties Files.
-(add-hook 'conf-javaprop-mode-hook
-		  '(lambda () (conf-quote-normal nil))) ; doesn't work
-
-
-;; (add-hook 'lisp-mode-hook '(lambda ()
-;; 							 (local-set-key (kbd "RET") 'newline-and-indent)))
-
-
 ; ---------------------------------------------------------------------------
 ; 모든 파일에 대해서 자동 들여쓰기 설정 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-;**************************************************************************/
-; *********************** For Perl Programming ****************************/
-;**************************************************************************/
-(fset 'perl-mode 'cperl-mode)
-(setq cperl-indent-level 4)
-
-
-;**************************************************************************/
-;************************* For PHP programming  ***************************/
-;**************************************************************************/
-(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
-(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
 
 ;***************************************************************************/
-;************************* For Ruby programming  ***************************/
+;********************* For Common Setting  ************************/
 ;**************************************************************************/
-(add-to-list 'auto-mode-alist
-			 '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist
-			 '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
-
-;***************************************************************************/
-;********************* For Common Lisp programming  ************************/
-;**************************************************************************/
-;(eval-when-compile (require 'cl))
-
-; SLIME setting
-
-;; Set your lisp system and, optionally, some contribs
-;(setq inferior-lisp-program "/opt/sbcl/bin/sbcl")
-;(setq slime-contribs '(slime-fancy))
-
-
-;; Setup load-path, autoloads and your lisp system
-;(add-to-list 'load-path "~/.emacs.d/elpa/slime-20161109.640")
-;(require 'slime-autoloads)
-;; Also setup the slime-fancy contrib
-;(add-to-list 'slime-contribs 'slime-fancy)
-
-
-; 참고: https://gist.github.com/jteneycke/7947353
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-;; Replace "sbcl" with the path to your implementation
-(setq inferior-lisp-program "/usr/bin/sbcl")
-
-
 ;; smart mode-line
 (sml/setup)
 
@@ -389,7 +391,12 @@
 (yas-global-mode 1)
 
 
+; Shift + Enter short cut for move to new line
+;; (defun end-of-line-and-indented-new-line ()
+;;   (interactive)
+;;   (end-of-line)
+;;   (newline-and-indent))
 
 
 
-;;;
+
