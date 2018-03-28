@@ -158,8 +158,6 @@
 
 
 ; 자동 괄호 완성 (Auto-pair)
-; ~/.emacs.d/autopair 에 다운로드 받아두었음.
-(add-to-list 'load-path "~/.emacs.d/autopair") 
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers
 
@@ -206,8 +204,6 @@
 ;;  (lambda (s)
 ;;    (goto-char (point-max))
 ;;    (eval-print-last-sexp)))
-
-(add-to-list 'load-path "~/.emacs.d/el-get") 
 (require 'el-get)
 
 
@@ -234,12 +230,6 @@
 
 (global-set-key (kbd "M-n") 'highlight-symbol-next)
 (global-set-key (kbd "M-p") 'highlight-symbol-prev)
-
-
-
-; info+
-(add-to-list 'load-path "~/.emacs.d/info-plus")
-(require 'info+)
 
 
 ;; A quick major mode help with discover-my-major
