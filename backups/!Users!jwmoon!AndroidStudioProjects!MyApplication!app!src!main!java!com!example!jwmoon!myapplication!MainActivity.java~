@@ -1,0 +1,57 @@
+package com.example.jwmoon.myapplication;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button btnClick;
+    private TextView msg;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        Log.d("OnCreate","*************");
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+//        btnClick = （Button) findViewById(R.id.button);
+  //      btnClick.setOnClickListener(this);
+
+        btnClick = (Button) findViewById(R.id.button) ;
+        btnClick.setOnClickListener(this);
+
+        msg = (TextView) findViewById(R.id.textView2) ;
+
+        if(msg == null || btnClick == null){
+            Log.d("msg is null..","");
+        }else{
+            Log.d("msg is NOT null!!","");
+        }
+
+        /*if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.containe, new PlaceholderFragmen())
+                    .commit();
+        }*/
+    }
+
+    public void onClick(View v){
+
+        Log.d("OnClikc","*************");
+        String message = "You've click the button.";
+        if (v == btnClick)
+        {
+            if(msg == null){
+                Log.d("msg is null~~~","");
+            }
+                msg.setText(message);
+
+                msg.setVisibility(View.VISIBLE);
+        }
+        return;
+    }
+}

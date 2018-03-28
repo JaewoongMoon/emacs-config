@@ -1,0 +1,2 @@
+(ns hipstr.models.album-model
+  (:requre [yesql.core :refer [defqueries]]))

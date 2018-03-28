@@ -1,0 +1,6 @@
+((:proxy nil :port 9000 :language :php :fileuri "file:///Users/jwmoon/Sites/logout.php" :source
+         ("file:///Users/jwmoon/Sites/logout.php"))
+ (:proxy nil :port 9000 :language :php :fileuri "file:///Users/jwmoon/Sites/action_page.php" :source
+         ("file:///Users/jwmoon/Sites/action_page.php" "file:///Users/jwmoon/Sites/connect.php"))
+ (:proxy nil :port 9000 :language :php :fileuri "file:///Users/jwmoon/Sites/login.php" :source
+         ("file:///Users/jwmoon/Sites/login.php" "file:///Users/jwmoon/Sites/login.php")))

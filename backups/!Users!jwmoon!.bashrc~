@@ -1,0 +1,8 @@
+# alias
+
+alias ll='ls -al'
+
+
+
+# Terminal 세팅
+PS1="\e[33m[\u@\h:\w]\e[0m\$ "

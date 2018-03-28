@@ -1,0 +1,28 @@
+# .bash_profile
+
+
+
+# Get the aliases and functions
+
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+
+#default setting
+
+export CLICOLOR=1
+export CLICOLOR_FORCE=1
+export LSCOLORS=Exfxcxdxbxegedabagacad
+
+alias python="python3"
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/usr/local/go/bin/:/Users/jwmoon/Library/Android/sdk/platform-tools:/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+# /Users/jwmoon/jython2.7.0/bin <-- delete because pylint install has failed
+export PATH
+
+# set python lib PATH
+export PYTHONPATH="/Users/jwmoon/python-cipher-hack/lib"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

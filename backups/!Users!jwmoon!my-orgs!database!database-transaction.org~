@@ -1,0 +1,22 @@
+* The ACID properties
+
+** Atomic 
+All work that must be performed by the database inside a transaction
+
+- that is, reading data, deleting data, updating data, and/or inserting data
+
+- is treated as a single unit of work. It's literally all-or-nothing. 
+
+If anything fails, then it all fails, and you revert back to the way the universe
+
+was before you'd gone and mucked it all up.
+
+** Consistent
+
+
+
+** Isolated
+
+
+
+** Durable

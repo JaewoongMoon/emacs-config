@@ -1,0 +1,7 @@
+* Lists
+** 3.1 Conses
+Conceptually, a cons is a pair of pointers; 
+the first one is the car and the second is the cdr.
+
+The function consp returns true if its argument is a cons. 
+(defun our-listp (x)

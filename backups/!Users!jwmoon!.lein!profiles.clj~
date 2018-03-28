@@ -1,0 +1,1 @@
+{:user {:plugins [[lumins/lein-template "1.16.7"]]}}

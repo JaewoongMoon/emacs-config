@@ -4,7 +4,7 @@
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
 ;;;### (autoloads nil nil ("python-environment-pkg.el" "python-environment.el"
-;;;;;;  "test-python-environment.el") (22662 64902 790794 178000))
+;;;;;;  "test-python-environment.el") (22664 26137 381969 0))
 
 ;;;***
 

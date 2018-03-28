@@ -1,0 +1,21 @@
+* Chapter 5. Function Programming
+
+** Pure Functions: What and Why
+
+
+A function is pure if it meets two qualifications:
+
+ + It always returns the same result if given the same arguments.
+ + It can't cause any side effects. 
+
+
+** Pure Functions Are Referentially Transparent
+
+To return the same result when called with the same argument,
+pure functions rely only on 1) their own arguments and 2) immutable
+values to determine their return value. 
+Mathmatical functions, for example, are referentially Transparent:
+
+If a function relies on an immutable value, it's referentially Transparent.
+The string ", Daniel-san" is immutable, so the following function is 
+referentially transparent:

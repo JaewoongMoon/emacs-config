@@ -3,8 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "php-mode" "php-mode.el" (22616 48834 467029
-;;;;;;  544000))
+;;;### (autoloads nil "php-mode" "php-mode.el" (22658 5111 0 0))
 ;;; Generated autoloads from php-mode.el
 
 (defvar php-file-patterns '("\\.php[s34]?\\'" "\\.phtml\\'" "\\.inc\\'") "\

@@ -1,0 +1,9 @@
+(ns hipstr.routes.albums
+  (:require [compojure.core :refer :all]
+            [hipstr.layout :as layout]
+            [hipstr.models.album-model :as album]))
+
+(defroutes album-routes
+  (GET "/albums/recently-added" [] (album/get-recently-added)))
+
+
