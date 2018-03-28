@@ -103,12 +103,12 @@
 
 
 
-(let ((path (shell-command-to-string ". ~/.bash_profile; echo -n $PYTHONPATH")))
-  (setenv "PYTHONPATH" path)
-  (setq exec-path 
-        (append
-         (split-string-and-unquote path ":")
-         exec-path)))
+;; (let ((path (shell-command-to-string ". ~/.bash_profile; echo -n $PYTHONPATH")))
+;;   (setenv "PYTHONPATH" path)
+;;   (setq exec-path 
+;;         (append
+;;          (split-string-and-unquote path ":")
+;;          exec-path)))
 
 
 (let ((path (shell-command-to-string ". ~/.bash_profile; echo -n $PATH")))
@@ -185,10 +185,24 @@
 
 
 
+; 투명도 설정
+;; Color
+(if window-system (progn
+    (set-background-color "Black")
+    (set-foreground-color "LightGray")
+    (set-cursor-color "Gray")
+    (set-frame-parameter nil 'alpha 90) ;透明度
+    ))
+
+;; 透明度を変更するコマンド M-x set-alpha
+;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
 (defun set-alpha (alpha-num)
   "set frame parameter 'alpha"
   (interactive "nAlpha: ")
-  (set-frame-parameter nil 'alpha (cons alpha-num '(90))))
+  (set-frame-parameter nil 'alpha (cons alpha-num '(90)))) ; 기본 투명도(포커스가 이맥스가 아닐 때)
+
+
+(set-alpha 100) ; 포커스가 이맥스일 때는 100으로
 
 
 ; Org-Mode
