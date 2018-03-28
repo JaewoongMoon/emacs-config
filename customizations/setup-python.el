@@ -31,4 +31,5 @@
 ;; 버퍼 실행(C-c C-c) 시 화면분할은 양옆으로(horizontally) 나눠지도록
 (setq-default py-split-windows-on-execute-function 'split-window-horizontally)
 
-
+;; debugger
+(setq-default pdb-path '/usr/lib/python3.5/pdb.py)
