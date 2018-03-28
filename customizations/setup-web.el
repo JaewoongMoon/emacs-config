@@ -22,5 +22,4 @@
 (add-hook 'css-mode-hook 'rainbow-mode)
 
 ; Web-Mode
-;; > 로 태그 닫을 시 바로 close tag 완성되도록.
 (setq web-mode-auto-close-style 2)

@@ -9,8 +9,9 @@ cp -Rf * ~/.emacs.d
 
 ## 로컬의 elpa를 리모트 git 저장소에 동기화
 ```
-cp -Rf ~/.emacs.d/elpa/* ~/emacs-config/elpa/*
-cd ~/emacs-config
+cd ~/emacs-config/elpa
+cp -Rf ~/.emacs.d/elpa/* .
+cd ..
 git add elpa/
 git commit -m "sync package"
 git push -u origin master

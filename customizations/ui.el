@@ -8,7 +8,25 @@
 ;(menu-bar-mode -1)
 
 ;; Show line numbers
-(global-linum-mode)
+;(global-linum-mode)
+; nlinum
+;; 버퍼의 왼쪽에 줄 번호를 표시한다. 
+(global-nlinum-mode t)
+
+;; 네자리분의 표시 영역을 확보 (고정)
+;(setq nlinum-format "%4d")
+
+;;동적으로 크기를 변동시키고 싶을 때
+;;Preset `nlinum-format' for minimum width.
+(defun my-nlinum-mode-hook ()
+  (when nlinum-mode
+    (setq-local nlinum-format
+                (concat "%" (number-to-string
+                             ;; Guesstimate number of buffer lines.
+                             (ceiling (log (max 1 (/ (buffer-size) 80)) 10)))
+                        "d"))))
+(add-hook 'nlinum-mode-hook #'my-nlinum-mode-hook)
+
 
 ;; You can uncomment this to remove the graphical toolbar at the top. After
 ;; awhile, you won't need the toolbar.
