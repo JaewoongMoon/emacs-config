@@ -3,6 +3,9 @@
 ;**************************************************************************/
 (require 'python-mode)
 
+; 자동 괄호 완성 (Auto-pair)
+(require 'autopair)
+
 ; editing
 (add-hook 'python-mode-hook
           '(lambda ()
@@ -10,7 +13,11 @@
              (setq index-level 4)
              (setq python-indent 4)
              (setq tab-width 4)
+             (autopair-mode)
 			 ))
+
+
+
 
 ;; code-assist
 (add-hook 'python-mode-hook 'jedi:setup)

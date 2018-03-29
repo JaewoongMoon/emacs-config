@@ -158,8 +158,8 @@
 
 
 ; 자동 괄호 완성 (Auto-pair)
-(require 'autopair)
-(autopair-global-mode) ;; enable autopair in all buffers
+;(require 'autopair)
+;(autopair-global-mode) ;; 글로벌 모드로 할 경우 helm-find-file 에서 에러가 발생한다. 따라서 필요한 각 모드에서만 실행되도록 하자. 
 
 
 ;; encoding setting
